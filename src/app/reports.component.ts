@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { Report } from './report';
 import { ReportService } from './report.service';
 
@@ -17,10 +17,16 @@ export class ReportsComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private reportService: ReportService) { }
+        private reportService: ReportService,
+        private location: Location) { }
 
     ngOnInit(): void {
         this.getReports();
+    }
+
+    
+    goBack(): void {
+        this.location.back();
     }
 
     getReports(): void {
@@ -40,7 +46,7 @@ export class ReportsComponent implements OnInit {
         status = status;
         id = id;
         date = date;
-        if (!(name | title | module | severity | status | id)) { return; }
+        //if (!(name | title | module | severity | status | id)) { return; }
         this.reportService.create(id, name, status, severity, module, comment, title, date)
             .then(report => {
                 this.reports.push(report);
