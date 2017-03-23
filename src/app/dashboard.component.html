@@ -1,0 +1,11 @@
+<h3>Modules</h3>
+<div class="grid grid-pad">
+  <div class="module report">
+      <a *ngFor= "let report of reports" [routerLink]="['/detail', report.id]" class="col-1-4">
+        <code>
+          <h4>{{report.id}} | {{report.module}} | {{report.title}}</h4>
+        </code>
+      </a>
+  </div>
+
+</div>
