@@ -4,7 +4,6 @@ export class InMemoryDataService implements InMemoryDbService {
     let reports = [
     {
       id: 1,
-      name: 'AWS Report 3/17',
       status: 1,
       severity: 1,
       module: 'AWS',
@@ -14,7 +13,6 @@ export class InMemoryDataService implements InMemoryDbService {
     },
     {
       id: 2,
-      name: 'Security Report 3/17',
       status: 2,
       severity: 2,
       module: 'Security',
@@ -24,7 +22,6 @@ export class InMemoryDataService implements InMemoryDbService {
     },
     {
       id: 3,
-      name: 'Security Report 3/18',
       status: 2,
       severity: 2,
       module: ' Security',

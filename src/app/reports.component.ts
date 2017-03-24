@@ -24,7 +24,7 @@ export class ReportsComponent implements OnInit {
         this.getReports();
     }
 
-    
+
     goBack(): void {
         this.location.back();
     }
@@ -37,8 +37,7 @@ export class ReportsComponent implements OnInit {
         this.router.navigate(['/detail', this.selectedReport.id]);
     }
 
-    add(name: string, title: string, comment: string, module: string, severity: number, status: number, id: number, date: number): void {
-        name= name;
+    add(title: string, comment: string, module: string, severity: number, status: number, id: number, date: number): void {
         title = title;
         comment = comment;
         module = module;
@@ -46,8 +45,8 @@ export class ReportsComponent implements OnInit {
         status = status;
         id = id;
         date = date;
-        //if (!(name | title | module | severity | status | id)) { return; }
-        this.reportService.create(id, name, status, severity, module, comment, title, date)
+        //if (!(title | module | severity | status | id)) { return; }
+        this.reportService.create(id, status, severity, module, comment, title, date)
             .then(report => {
                 this.reports.push(report);
                 this.selectedReport = null;

@@ -27,12 +27,11 @@
      <label>Report Status:</label> <input #reportStatus />
      <label>Report Severity:</label> <input #reportSeverity />
      <label>Report Title:</label> <input #reportTitle />
-     <label>Report Name:</label> <input #reportName />
      <label>Report Comment:</label> <input #reportComment />
      <label>Report Date:</label> <input #reportDate />
 
-     <button (click)="add(reportName.vaule, reportTitle.value, reportComment.value, module.value, reportSeverity.value, reportStatus.value,
-     reportId.value, reportDate.value); reportName.value = ''; reportTitle.value = ''; reportComment.value = ''; module.value = ''; reportSeverity.value = ''; reportStatus.value = ''; reportId.value = ''; reportDate.value = '';">
+     <button (click)="add(reportTitle.value, reportComment.value, module.value, reportSeverity.value, reportStatus.value,
+     reportId.value, reportDate.value); reportTitle.value = ''; reportComment.value = ''; module.value = ''; reportSeverity.value = ''; reportStatus.value = ''; reportId.value = ''; reportDate.value = '';">
  Add
 </button>
  </div>

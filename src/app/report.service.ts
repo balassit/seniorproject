@@ -40,10 +40,10 @@ export class ReportService {
             .then(() => report)
             .catch(this.handleError);
     }
-    
-    create(id: number, name: string, status: number, severity: number, module: string, comment:string, title: string, date: number): Promise<Report> {
+
+    create(id: number, status: number, severity: number, module: string, comment:string, title: string, date: number): Promise<Report> {
       return this.http
-        .post(this.reportsUrl, JSON.stringify({name: name, title: title, comment: comment, module:module, severity:severity, status:status, id:id, date:date}), {headers: this.headers})
+        .post(this.reportsUrl, JSON.stringify({title: title, comment: comment, module:module, severity:severity, status:status, id:id, date:date}), {headers: this.headers})
         .toPromise()
         .then(res => res.json().data)
         .catch(this.handleError);
