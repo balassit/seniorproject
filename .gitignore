@@ -3,5 +3,40 @@ dist/
 /dist/
 *.idea/
 !.gitignore
-.coverage
 .*
+/node_modules
+# Byte-compiled / optimized / DLL files
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+
+
+# Unit test / coverage reports
+.coverage
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# virtualenv
+/env/
+!.gitignore
+!.travis.yml

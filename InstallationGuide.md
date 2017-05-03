@@ -89,18 +89,29 @@ Add user for postgres
 ```
 sudo gedit /etc/postgresql/9.3/main/pg_hba.conf
 CHANGE lines: 
-# Database administrative login by UNix domain socket 
-local   all        postgres                                     trust
+# Database administrative login by Unix domain socket
+local   postgres        postgres                                peer
+
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
 # "local" is for Unix domain socket connections only
 local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+#local   replication     postgres                                peer
+#host    replication     postgres        127.0.0.1/32            md5
+#host    replication     postgres        ::1/128                 md5
+
 sudo service postgresql restart
 sudo -u postgres psql
 ALTER USER postgres PASSWORD 'csc492team3';
 \q
 ```
 
-Install npm, node and bower
+### Install npm, node and bower
 
 ```
 sudo apt-get install npm nodejs
@@ -110,7 +121,7 @@ sudo npm install -g bower
 Install all the dependencies for the Web App
 
 ```
-sudo npm install
+npm install
 ```
 
 ### Starting PgAdmin, Django, and AngularJS
@@ -129,6 +140,7 @@ Navigate to: localhost:5050
 cd 2016FallTeam03/env
 source bin/activate
 cd 2016FallTeam03/ContextualDashboard
+python manage.py makemigrations (only done once, or as updates are applied)
 python manage.py migrate (only done once, or as updates are applied)
 python manage.py runserver
 ```
