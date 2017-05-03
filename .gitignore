@@ -1,9 +1,5 @@
-system-config.js*
-app/**/*.js
-app/**/*.map
-node_modules
-jspm_packages
-bower_components
-aot/*
-yarn.lock
-.idea/
+dist/
+*.log
+/dist/
+*.idea/
+!.gitignore
