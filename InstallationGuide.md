@@ -58,7 +58,7 @@ sudo apt-get install python3-dev
 ```
 sudo apt-get install libpq-dev --fix-missing
 wget https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v1.4/pip/pgadmin4-1.4-py2.py3-none-any.whl
-pip install pgadmin4-1.1-py2-none-any.whl
+pip install pgadmin4-1.4-py2.py3-none-any.whl 
 gedit lib/python2.7/site-packages/pgadmin4/config.py
 Change SERVER MODE: False
 python lib/python2.7/site-packages/pgadmin4/setup.py
