@@ -1,0 +1,40 @@
+    #Post a report to the database with no content in data field    
+    - POST /dashboard/reports/
+    #delete report
+    - DELETE /dashboard/reports/1/
+    #Post 2 reports of the same module at once
+    - POST /dashboard/reports/
+    #Get all reports
+    - GET /dashboard/reports/
+    #Get report by ID
+    - GET /dashboard/reports/1/
+    #Post 2 reports with different modules at same time
+    - POST /dashboard/reports/
+
+    #Get reports based on filter (no filter)
+    - GET /dashboard/reportFilter/
+    #Get reports based on filter for title
+    - GET /dashboard/reportFilter/?title=title
+    #Get reports based on filter for id
+    - GET /dashboard/reportFilter/?id=1
+    #Get reports based on filter for module
+    - GET /dashboard/reportFilter/?module=module
+    #Get reports based on filter for severity
+    - GET /dashboard/reportFilter/?severity=1
+    #Get reports based on filter for status
+    - GET /dashboard/reportFilter/?status=F/V/U
+
+    #Sorting
+    - Get /dashboard/reportFilter/?sort (date, module, severity, title, status)
+    #implementation of authentication (needs to be done then tested)
+ 
+    #Patch for status change
+    #Comment change(unsure as of now)
+
+    Fail cases:
+    #Get report by id that doesn't exist
+    #Delete report that doesnt exist
+    #Get for out of bounds severity
+    #Get for empty string module
+    #Get for empty string title
+    #Post with no title/module/severity/data
