@@ -56,7 +56,7 @@ sudo apt-get install python3-dev
 ### Install pgAdmin, django and dependencies
 
 ```
-sudo apt-get install libpq-dev --fix-misisng
+sudo apt-get install libpq-dev --fix-missing
 wget https://ftp.postgresql.org/pub/pgadmin3/pgadmin4/v1.1/pip/pgadmin4-1.1-py2-none-any.whl
 pip install pgadmin4-1.1-py2-none-any.whl
 gedit lib/python2.7/site-packages/pgadmin4/config.py
