@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+
 import { Report } from './report';
 import { ReportService } from './report.service';
+
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'my-reports',
@@ -17,16 +19,11 @@ export class ReportsComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private reportService: ReportService,
-        private location: Location) { }
+        private location: Location,
+        private reportService: ReportService) { }
 
     ngOnInit(): void {
         this.getReports();
-    }
-
-
-    goBack(): void {
-        this.location.back();
     }
 
     getReports(): void {
@@ -37,7 +34,8 @@ export class ReportsComponent implements OnInit {
         this.router.navigate(['/detail', this.selectedReport.id]);
     }
 
-    add(title: string, comment: string, module: string, severity: number, status: number, id: number, date: number): void {
+add(name: string, title: string, comment: string, module: string, severity: number, status: number, id: number, date: number): void {
+        name= name;
         title = title;
         comment = comment;
         module = module;
@@ -45,8 +43,8 @@ export class ReportsComponent implements OnInit {
         status = status;
         id = id;
         date = date;
-        //if (!(title | module | severity | status | id)) { return; }
-        this.reportService.create(id, status, severity, module, comment, title, date)
+        if (!(name || title || module || severity || status || id)) { return; }
+        this.reportService.create(id, name, status, severity, module, comment, title, date)
             .then(report => {
                 this.reports.push(report);
                 this.selectedReport = null;
@@ -60,6 +58,6 @@ export class ReportsComponent implements OnInit {
                 this.reports = this.reports.filter(h => h !== report);
                 this.selectedReport = null;
             });
-        this.goBack();
+        this.location.back();
     }
 }

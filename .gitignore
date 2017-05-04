@@ -1,28 +1,12 @@
-dist/
-*.log
-/dist/
-*.idea/
 !.gitignore
 .*
-/node_modules
-# Byte-compiled / optimized / DLL files
-*$py.class
 
 # C extensions
 *.so
 
 # Distribution / packaging
-.Python
 env/
-build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
 
 
 # Unit test / coverage reports
@@ -30,13 +14,27 @@ parts/
 
 # Translations
 *.mo
-*.pot
 
 # Django stuff:
 *.log
-local_settings.py
 
 # virtualenv
 /env/
 !.gitignore
 !.travis.yml
+
+
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+
+# IDE - VSCode
+.vscode/*

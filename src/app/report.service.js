@@ -58,9 +58,10 @@ var ReportService = (function () {
     };
     ReportService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object])
     ], ReportService);
     return ReportService;
+    var _a;
 }());
 exports.ReportService = ReportService;
 //# sourceMappingURL=report.service.js.map

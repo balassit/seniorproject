@@ -44,9 +44,10 @@ var ReportDetailComponent = (function () {
             templateUrl: './report-detail.component.html',
             styleUrls: ['./report-detail.component.css']
         }), 
-        __metadata('design:paramtypes', [report_service_1.ReportService, router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [report_service_1.ReportService, (typeof (_a = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _a) || Object, (typeof (_b = typeof common_1.Location !== 'undefined' && common_1.Location) === 'function' && _b) || Object])
     ], ReportDetailComponent);
     return ReportDetailComponent;
+    var _a, _b;
 }());
 exports.ReportDetailComponent = ReportDetailComponent;
 //# sourceMappingURL=report-detail.component.js.map
