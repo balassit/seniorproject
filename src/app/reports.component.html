@@ -5,8 +5,10 @@
                 <th>ID</th>
                 <th>Module</th>
                 <th>Title</th>
-                <th>Status</th>
                 <th>Severity</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Comment</th>
         </tr>
         <tr *ngFor="let report of reports"
           [class.selected]="report === selectedReport"
@@ -15,24 +17,21 @@
             <td>{{report.id}}</td>
             <td>{{report.module}}</td>
             <td>{{report.title}}</td>
-            <td>{{report.status}}</td>
             <td>{{report.severity}}</td>
+            <td>{{report.status}}</td>
+            <td>{{report.date}}</td>
+            <td>{{report.comment}}</td>
         </tr>
  </table>
 
  <div>
      <h4>Add a New Report</h4>
      <label>Module:</label> <input #module />
-     <label>ID</label> <input #reportId />
-     <label>Report Status:</label> <input #reportStatus />
      <label>Report Severity:</label> <input #reportSeverity />
      <label>Report Title:</label> <input #reportTitle />
-     <label>Report Name:</label> <input #reportName />
-     <label>Report Comment:</label> <input #reportComment />
-     <label>Report Date:</label> <input #reportDate />
 
-     <button (click)="add(reportName.vaule, reportTitle.value, reportComment.value, module.value, reportSeverity.value, reportStatus.value,
-     reportId.value, reportDate.value); reportName.value = ''; reportTitle.value = ''; reportComment.value = ''; module.value = ''; reportSeverity.value = ''; reportStatus.value = ''; reportId.value = ''; reportDate.value = '';">
+     <button (click)="add(reportTitle.value, module.value, reportSeverity.value);
+     reportTitle.value = ''; module.value = ''; reportSeverity.value = '';">
  Add
 </button>
  </div>

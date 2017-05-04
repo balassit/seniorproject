@@ -1,10 +1,10 @@
+import 'rxjs/add/operator/switchMap';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import 'rxjs/add/operator/switchMap';
 
-import { ReportService } from './report.service';
 import { Report } from './report';
+import { ReportService } from './report.service';
 
 @Component({
     selector: 'my-report-detail',
@@ -35,5 +35,11 @@ export class ReportDetailComponent implements OnInit {
             .then(() => this.goBack());
     }
 
-
+    delete(report: Report): void {
+        this.reportService
+            .delete(report.id)
+            .then(() => {
+                this.goBack();
+            });
+    }
 }

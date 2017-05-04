@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { Report } from './report';
 import { ReportService } from './report.service';
 
-import { Location } from '@angular/common';
-
 @Component({
     selector: 'my-reports',
     templateUrl: './reports.component.html',
@@ -19,7 +17,6 @@ export class ReportsComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private location: Location,
         private reportService: ReportService) { }
 
     ngOnInit(): void {
@@ -34,17 +31,12 @@ export class ReportsComponent implements OnInit {
         this.router.navigate(['/detail', this.selectedReport.id]);
     }
 
-add(name: string, title: string, comment: string, module: string, severity: number, status: number, id: number, date: number): void {
-        name= name;
+add(title: string, module: string, severity: number): void {
         title = title;
-        comment = comment;
         module = module;
         severity = severity;
-        status = status;
-        id = id;
-        date = date;
-        if (!(name || title || module || severity || status || id)) { return; }
-        this.reportService.create(id, name, status, severity, module, comment, title, date)
+        if (!(title || module || severity)) { return; }
+        this.reportService.create(title, module, severity)
             .then(report => {
                 this.reports.push(report);
                 this.selectedReport = null;
@@ -58,6 +50,5 @@ add(name: string, title: string, comment: string, module: string, severity: numb
                 this.reports = this.reports.filter(h => h !== report);
                 this.selectedReport = null;
             });
-        this.location.back();
     }
 }

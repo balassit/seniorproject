@@ -7,7 +7,7 @@ import { Report } from './report';
 
 @Injectable()
 export class ReportService {
-    private reportsUrl = 'api/reports';  // URL to web api
+    private reportsUrl = 'http://127.0.0.1:8000/dashboard/api/reports/';  // URL to web api
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
     constructor(private http: Http) { }
@@ -40,21 +40,22 @@ export class ReportService {
             .then(() => report)
             .catch(this.handleError);
     }
-    
-    create(id: number, name: string, status: number, severity: number, module: string, comment:string, title: string, date: number): Promise<Report> {
+
+    create(title: string, module: string, severity: number): Promise<Report> {
       return this.http
-        .post(this.reportsUrl, JSON.stringify({name: name, title: title, comment: comment, module:module, severity:severity, status:status, id:id, date:date}), {headers: this.headers})
+        .post(this.reportsUrl, JSON.stringify({module: module, severity: severity, title: title,
+        data: {}}), {headers: this.headers})
         .toPromise()
         .then(res => res.json().data)
         .catch(this.handleError);
     }
 
     delete(id: number): Promise<void> {
-  const url = `${this.reportsUrl}/${id}`;
-  return this.http.delete(url, {headers: this.headers})
-    .toPromise()
-    .then(() => null)
-    .catch(this.handleError);
-}
+      const url = `${this.reportsUrl}/${id}`;
+      return this.http.delete(url, {headers: this.headers})
+        .toPromise()
+        .then(() => null)
+        .catch(this.handleError);
+    }
 
 }

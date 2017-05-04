@@ -9,8 +9,8 @@ router = DefaultRouter()
 router.register(r'reports', ReportViewSet)
 router.register(r'modules', ModuleViewSet)
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
-	url(r'^api/', include(router.urls)),
+  url(r'^$', views.index, name='index'),
+  url(r'^api/', include(router.urls)),
 ]
 '''
 report_list = ReportViewSet.as_view({

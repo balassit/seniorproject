@@ -10,7 +10,7 @@ class ReportSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Report
-		include = ('module', 'severity', 'title', 'data')
+		include = ('module', 'severity', 'title')
 		fields = '__all__'
 
 class ModuleSerializer(serializers.ModelSerializer):

@@ -87,7 +87,7 @@ pip install requests
 Add user for postgres
 
 ```
-sudo gedit /etc/postgresql/9.3/main/pg_hba.conf
+sudo gedit /etc/postgresql/9.6/main/pg_hba.conf
 CHANGE lines: 
 # Database administrative login by Unix domain socket
 local   postgres        postgres                                peer

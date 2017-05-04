@@ -14,23 +14,12 @@ class TestPut(RequestFactory):
 
 def test_1(self):
     factory = RequestFactory()
-    url = '/dashboard/reports/' 
+    url = '/dashboard/reports/'
     data = [
         {
         "module": "module data",
         "severity": 1,
-        "title": "title data",
-        "data": {
-            "title": "",
-            "link": "",
-            "guid": "",
-            "pubDate": "",
-            "categories": [],
-            "author": "",
-            "thumbnail": "",
-            "description": "",
-            "content": ""
-            }
+        "title": "title data"
         }
-        ]
-     requeset = factory.post(url, data, format='json')
+    ]
+    request = factory.post(url, data, format='json')
