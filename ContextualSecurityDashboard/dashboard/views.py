@@ -47,7 +47,6 @@ class ModuleViewSet(viewsets.ModelViewSet):
   ordering_fields = ('module',)
   ordering = ('module',)
   renderer_classes = (JSONRenderer, )
-  pagination_class = None
 
 # homepage view
 def index(request):

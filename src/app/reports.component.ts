@@ -16,6 +16,7 @@ export class ReportsComponent implements OnInit {
     selectedReport: Report;
 
     constructor(
+
         private router: Router,
         private reportService: ReportService) { }
 
@@ -31,7 +32,7 @@ export class ReportsComponent implements OnInit {
         this.router.navigate(['/detail', this.selectedReport.id]);
     }
 
-add(title: string, module: string, severity: number): void {
+    add(title: string, module: string, severity: number): void {
         title = title;
         module = module;
         severity = severity;

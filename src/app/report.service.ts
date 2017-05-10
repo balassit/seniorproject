@@ -43,8 +43,7 @@ export class ReportService {
 
     create(title: string, module: string, severity: number): Promise<Report> {
       return this.http
-        .post(this.reportsUrl, JSON.stringify({module: module, severity: severity, title: title,
-        data: {}}), {headers: this.headers})
+        .post(this.reportsUrl, JSON.stringify([{module: module, severity: severity, title: title}]), {headers: this.headers})
         .toPromise()
         .then(res => res.json().data)
         .catch(this.handleError);
