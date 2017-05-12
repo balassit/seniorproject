@@ -12,11 +12,12 @@ import { ReportService } from './report.service';
 })
 
 export class ReportsComponent implements OnInit {
+    errorMessage: string;
     reports: Report[];
+    mode = 'Observable';
     selectedReport: Report;
 
     constructor(
-
         private router: Router,
         private reportService: ReportService) { }
 
@@ -25,8 +26,12 @@ export class ReportsComponent implements OnInit {
     }
 
     getReports(): void {
-        this.reportService.getReports().then(reports => this.reports = reports);
+        this.reportService.getReports()
+        .subscribe(
+        reports => this.reports = reports,
+        error =>  this.errorMessage = <any>error);
     }
+
     onSelect(report: Report): void {
         this.selectedReport = report;
         this.router.navigate(['/detail', this.selectedReport.id]);
@@ -38,18 +43,17 @@ export class ReportsComponent implements OnInit {
         severity = severity;
         if (!(title || module || severity)) { return; }
         this.reportService.create(title, module, severity)
-            .then(report => {
-                this.reports.push(report);
-                this.selectedReport = null;
-            });
+            .subscribe(
+              report => this.reports.push(report),
+              error =>  this.errorMessage = <any>error);
+        this.selectedReport = null;
     }
 
     delete(report: Report): void {
-        this.reportService
-            .delete(report.id)
-            .then(() => {
-                this.reports = this.reports.filter(h => h !== report);
+        this.reportService.delete(report.id)
+            .subscribe(
+                result => console.log(result),
+                error =>  this.errorMessage = <any>error);
                 this.selectedReport = null;
-            });
     }
 }
